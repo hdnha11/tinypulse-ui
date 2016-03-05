@@ -1,7 +1,36 @@
-.tiny-button {
-  color: #ffffff;
+tiny-button {
+  display: inline-block;
 
-  &.is-active {
-    color: #ff0000;
+  button {
+    color: #fff;
+    background-color: #00c26b;
+    background-image: none;
+    border: 1px solid transparent;
+    border-color: #00c26b;
+    border-radius: 2px;
+
+    padding: 6px 20px;
+    font-family: "SourceSansPro-Regular";
+    font-size: 14px;
+    line-height: 1.42857;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: #fff;
+      background-color: #008f4f;
+      border-color: #008549;
+    }
+
+    &[disabled] {
+      background-color: #DADADA;
+      border-color: #DADADA;
+      color: #9b9b9b;
+      cursor: default;
+    }
   }
 }

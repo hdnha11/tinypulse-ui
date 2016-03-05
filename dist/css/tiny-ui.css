@@ -1,9 +1,0 @@
-/* line 1, /Users/nhahoang/Downloads/gulp-es6-webpack-example/src/scss/tiny-button/tiny-button.scss */
-.tiny-button {
-  color: #ffffff;
-}
-
-/* line 4, /Users/nhahoang/Downloads/gulp-es6-webpack-example/src/scss/tiny-button/tiny-button.scss */
-.tiny-button.is-active {
-  color: #ff0000;
-}

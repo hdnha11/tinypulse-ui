@@ -1,0 +1,24 @@
+{
+  "name": "tiny-ui",
+  "description": "TINYpulse Front-end framework",
+  "main": "src/main.js",
+  "authors": [
+    "TINYpulse"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/hdnha11/tinypulse-ui",
+  "moduleType": [
+    "amd",
+    "es6"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "skatejs": "^0.15.3"
+  }
+}
