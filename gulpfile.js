@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var rename = require('gulp-rename');
 var babel = require('gulp-babel');
 var sass = require('gulp-sass');
 var cssmin = require('gulp-cssmin');
@@ -14,10 +15,8 @@ var getPackageJson = function() {
 
 gulp.task('build-js', function() {
   return gulp.src('src/js/tiny-ui.js')
-    .pipe(babel({
-      presets: ['es2015']
-    }))
-    .pipe(gulp.dest('public/js'));
+    .pipe(babel())
+    .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('build-scss', function() {
@@ -27,23 +26,20 @@ gulp.task('build-scss', function() {
       sourceComments: true,
       errLogToConsole: true
     }))
-    .pipe(gulp.dest('public/css'));
-});
-
-gulp.task('copy-resources', ['build', 'bump'], function() {
-  gulp.src(['public/**/*', '!public/js/**/*'])
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('minify-js', ['build'], function() {
-  return gulp.src('public/js/**/*.js')
+  return gulp.src(['dist/js/**/*.js', '!dist/js/**/*.min.js'])
     .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/js/'));
 });
 
-gulp.task('minify-css', function() {
-  gulp.src('public/css/**/*.css')
+gulp.task('minify-css', ['build'], function() {
+  gulp.src(['dist/css/**/*.css', '!dist/css/**/*.min.css'])
     .pipe(cssmin())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/css/'));
 });
 
@@ -77,4 +73,4 @@ gulp.task('watch', function() {
 gulp.task('default', ['watch']);
 gulp.task('build', ['build-js', 'build-scss']);
 gulp.task('minify', ['minify-js', 'minify-css']);
-gulp.task('release', ['build', 'bump', 'copy-resources', 'minify']);
+gulp.task('release', ['build', 'bump', 'minify']);
