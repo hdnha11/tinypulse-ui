@@ -1,1 +1,1 @@
-import * from 'components/tiny-button';
+import TinyButton from 'components/tiny-button';
