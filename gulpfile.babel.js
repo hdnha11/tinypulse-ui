@@ -28,11 +28,11 @@ gulp.task('sass', () => {
 });
 
 gulp.task('test', ['babel', 'sass'], () => {
-//  return gulp.src('test/*.js')
-//    .pipe(mocha())
-//    .on('error', () => {
-//      gulp.emit('end');
-//    });
+  //  return gulp.src('test/*.js')
+  //    .pipe(mocha())
+  //    .on('error', () => {
+  //      gulp.emit('end');
+  //    });
 });
 
 gulp.task('watch-test', () => {
@@ -77,7 +77,7 @@ gulp.task('server', ['webpack'], function(callback) {
     },
     hot: true
   }).listen(8080, 'localhost', function(err) {
-    if (err) throw new gutil.PluginError('webpack-dev-server', err);
-    gutil.log('[webpack-dev-server]', 'http://localhost:8080/webpack-dev-server/index.html');
+    if (err) throw new gutil.PluginError('tiny-ui-dev-server', err);
+    gutil.log('[tiny-ui--dev-server]', 'http://localhost:8080/public/index.html');
   });
 });
