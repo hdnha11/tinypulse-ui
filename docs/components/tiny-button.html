@@ -2,14 +2,12 @@
      href="../../bower_components/polymer/polymer.html">
 
 <!--
-`<tiny-button>` injects a healthy dose of awesome into your page.
+`<tiny-button>` allow you add a button into your page.
 
-In typical use, just slap some `<tiny-button>` at the top of your body:
+In typical use, just slap some `<tiny-button>` at anywhere you want to:
+    <tiny-button></tiny-button>
 
-    <body>
-      <tiny-button></tiny-button>
-
-Wham! It's all awesome now!
+@demo components/demo-tiny-button.html
 -->
 
 <dom-module id="tiny-button">
@@ -20,7 +18,7 @@ Wham! It's all awesome now!
    Polymer({
      is: 'tiny-button',
      properties: {
-       xyz: "fdsfds"
+       disabled: false
      }
    });
  })();
