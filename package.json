@@ -36,6 +36,7 @@
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
-    "bower": "^1.7.7"
+    "bower": "^1.7.7",
+    "skatejs": "^0.15.3"
   }
 }

@@ -45,11 +45,15 @@ gulp.task('watch-test', () => {
 });
 
 gulp.task('webpack', ['test'], function(callback) {
-  var myConfig = Object.create(webpackConfig);
-  myConfig.plugins = [
+  var myConfig = Object.assign({}, webpackConfig);
+  if (myConfig.plugins == null) {
+    myConfig.plugins = [];
+  }
+
+  myConfig.plugins.push(... [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin()
-  ];
+  ]);
 
   // run webpack
   webpack(myConfig, function(err, stats) {
@@ -70,7 +74,7 @@ gulp.task('webpack', ['test'], function(callback) {
 
 gulp.task('server', ['webpack'], function(callback) {
   // modify some webpack config options
-  var myConfig = Object.create(webpackConfig);
+  var myConfig = Object.assign({}, webpackConfig);
   myConfig.devtool = 'eval';
   myConfig.debug = true;
 
