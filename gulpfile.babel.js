@@ -8,6 +8,7 @@ import rename from 'gulp-rename';
 import webpack from 'webpack';
 import webpackConfig from './webpack.config.babel';
 import WebpackDevServer from 'webpack-dev-server';
+import * as Karma from 'karma';
 
 gulp.task('default', ['webpack']);
 
@@ -61,6 +62,13 @@ gulp.task('webpack', ['test'], function(callback) {
     .pipe(cssmin())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/css'));
+});
+
+gulp.task('integration-test', function (done) {
+  new Karma.Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 });
 
 gulp.task('server', ['webpack'], function(callback) {
