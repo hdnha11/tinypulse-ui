@@ -9,6 +9,7 @@ import webpack from 'webpack';
 import webpackConfig from './webpack.config.babel';
 import WebpackDevServer from 'webpack-dev-server';
 import * as Karma from 'karma';
+import jasmine from 'gulp-jasmine';
 
 gulp.task('default', ['webpack']);
 
@@ -29,11 +30,14 @@ gulp.task('sass', () => {
 });
 
 gulp.task('test', ['babel', 'sass'], () => {
-  //  return gulp.src('test/*.js')
-  //    .pipe(mocha())
-  //    .on('error', () => {
-  //      gulp.emit('end');
-  //    });
+  //gulp.src('test/qunit/*.js').pipe(jasmine())
+});
+
+gulp.task('integration-test', ['babel'], (done) => {
+  new Karma.Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
 });
 
 gulp.task('watch-test', () => {
@@ -62,13 +66,6 @@ gulp.task('webpack', ['test'], function(callback) {
     .pipe(cssmin())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('dist/css'));
-});
-
-gulp.task('integration-test', function (done) {
-  new Karma.Server({
-    configFile: __dirname + '/karma.conf.js',
-    singleRun: true
-  }, done).start();
 });
 
 gulp.task('server', ['webpack'], function(callback) {

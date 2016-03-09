@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import TinyButton from '../target/js/components/tiny-button';
+import TinyButton from '../../src/js/components/tiny-button';
 
 describe('the button module', () => {
   it('should instantiate a button', () => {
