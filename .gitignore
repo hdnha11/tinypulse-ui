@@ -2,3 +2,5 @@ node_modules
 bower_components
 dist
 target
+.idea
+test_output

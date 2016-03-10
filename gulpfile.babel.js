@@ -9,7 +9,6 @@ import webpack from 'webpack';
 import webpackConfig from './webpack.config.babel';
 import WebpackDevServer from 'webpack-dev-server';
 import * as Karma from 'karma';
-import jasmine from 'gulp-jasmine';
 
 gulp.task('default', ['webpack']);
 
@@ -29,15 +28,12 @@ gulp.task('sass', () => {
     .pipe(gulp.dest('target/css'));
 });
 
-gulp.task('test', ['babel', 'sass'], () => {
-  //gulp.src('test/qunit/*.js').pipe(jasmine())
-});
-
-gulp.task('integration-test', ['babel'], (done) => {
-  new Karma.Server({
-    configFile: __dirname + '/karma.conf.js',
-    singleRun: true
-  }, done).start();
+gulp.task('test', ['babel', 'sass'], (done) => {
+  // new Karma.Server({
+  //   configFile: __dirname + '/karma.conf.js',
+  //   singleRun: true
+  // }, done).start();
+  done();
 });
 
 gulp.task('watch-test', () => {
