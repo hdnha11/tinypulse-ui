@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Wed Mar 09 2016 21:06:31 GMT+0700 (ICT)
+// Generated on Thu Mar 10 2016 14:45:25 GMT+0700 (ICT)
 
 module.exports = function(config) {
   config.set({
@@ -15,8 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: 'app/assets/javascripts/*.js', included: false},
-      {pattern: 'test/**/*.js', included: false}
+      'test-main.js',
+      {pattern: 'dist/js/*.js', included: true},
+      {pattern: 'test/integration_test/*.js', included: false}
     ],
 
 
@@ -56,7 +57,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox', 'Safari'],
+    browsers: ['Chrome'],//, 'Firefox', 'Safari', 'IE'
 
 
     // Continuous Integration mode
@@ -65,18 +66,6 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity,
-
-    reporters: ['progress', 'junit'],
-
-    // the default configuration
-    junitReporter: {
-      outputDir: './test_output', // results will be saved as $outputDir/$browserName.xml
-      outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
-      suite: 'tiny-ui', // suite will become the package name attribute in xml testsuite element
-      useBrowserName: true, // add browser name to report and classes names
-      nameFormatter: undefined, // function (browser, result) to customize the name attribute in xml testcase element
-      classNameFormatter: undefined // function (browser, result) to customize the classname attribute in xml testcase element
-    }
+    concurrency: Infinity
   })
 }

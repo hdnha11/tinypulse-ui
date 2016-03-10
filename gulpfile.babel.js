@@ -29,11 +29,15 @@ gulp.task('sass', () => {
 });
 
 gulp.task('test', ['babel', 'sass'], (done) => {
-  // new Karma.Server({
-  //   configFile: __dirname + '/karma.conf.js',
-  //   singleRun: true
-  // }, done).start();
-  done();
+  new Karma.Server({
+    configFile: __dirname + '/unit_test.conf.js',
+    singleRun: true
+  }, function () {
+    new Karma.Server({
+      configFile: __dirname + '/integration_test.conf.js',
+      singleRun: true
+    }, done).start();
+  }).start();
 });
 
 gulp.task('watch-test', () => {
