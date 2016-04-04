@@ -5,6 +5,7 @@ import mocha from 'gulp-mocha';
 import gutil from 'gulp-util';
 import cssmin from 'gulp-cssmin';
 import rename from 'gulp-rename';
+import clean from 'gulp-clean';
 import webpack from 'webpack';
 import webpackConfig from './webpack.config.babel';
 import WebpackDevServer from 'webpack-dev-server';
@@ -51,8 +52,8 @@ gulp.task('webpack', ['test'], function(callback) {
   }
 
   myConfig.plugins.push(... [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.DedupePlugin()
+    //new webpack.optimize.UglifyJsPlugin()
   ]);
 
   // run webpack
@@ -66,6 +67,7 @@ gulp.task('webpack', ['test'], function(callback) {
   });
 
   // copy css
+  gulp.src('dist/css').pipe(clean({force: true}));
   gulp.src(['target/css/tiny-ui.css'])
     .pipe(cssmin())
     .pipe(rename({ suffix: '.min' }))

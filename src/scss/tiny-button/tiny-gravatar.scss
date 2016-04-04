@@ -1,0 +1,7 @@
+img[is=tiny-gravatar] {
+  display: inline-block;
+  vertical-align: middle;
+  &.is-circle {
+    border-radius: 50%;
+  }
+}
