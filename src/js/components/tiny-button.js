@@ -4,14 +4,16 @@ import skate from 'skatejs';
 
 export default skate('tiny-button', {
   created: function (elem) {
-    var content = elem.textContent;
+
+
+    content = elem.textContent;
     elem.innerHTML = `
       <button>${content}</button>
     `;
     console.log('render');
   },
   properties: {
-    disabled: skate.properties.boolean({
+    disabled: skate.properties.boolean ({
       attribute: true,
       initial: function () {
         console.log('init');
