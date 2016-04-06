@@ -4,9 +4,7 @@ import skate from 'skatejs';
 
 export default skate('tiny-button', {
   created: function (elem) {
-
-
-    content = elem.textContent;
+    var content = elem.textContent;
     elem.innerHTML = `
       <button>${content}</button>
     `;
