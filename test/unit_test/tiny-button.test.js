@@ -6,13 +6,11 @@ describe('the button module', () => {
   });
 
   it('should instantiate a button', () => {
-    
-
     expect(button.disabled).toBe(false);
   });
 
-  it('button with disabled attribute cause the button is disbaled', () => {
-    button.setAttribute('disabled');
+  it('button with disabled attribute cause the button is disabled', () => {
+    button.setAttribute('disabled', '');
 
     expect(button.disabled).toBe(true);
   });
