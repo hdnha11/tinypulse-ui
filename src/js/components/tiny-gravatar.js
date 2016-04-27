@@ -20,16 +20,6 @@ export default skate('tiny-gravatar', {
     width: {
       attribute: true,
       set: skate.render
-    },
-    circle: skate.properties.boolean({
-      attribute: true,
-      set(elem, data) {
-        if (data.newValue) {
-          elem.classList.add('is-circle');
-        } else {
-          elem.classList.remove('is-circle');
-        }
-      }
-    })
+    }
   }
 });

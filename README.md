@@ -9,4 +9,7 @@ gulp
 ```
 
 Open docs
+```
+gulp server
+```
 http://localhost:8080/docs/index.html
