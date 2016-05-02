@@ -1,7 +1,68 @@
-img[is=tiny-gravatar] {
+tiny-gravatar {
   display: inline-block;
+  position: relative;
+  color: white;
+  background-color: #9b9b9b;
+  text-align: center;
   vertical-align: middle;
-  &[circle] {
+  border-radius: 50%;
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
     border-radius: 50%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+
+    &[loaded] {
+      opacity: 1;
+    }
+  }
+}
+
+tiny-gravatar[small] {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+
+  span {
+    font-size: 70%;
+  }
+}
+
+tiny-gravatar {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+
+  span {
+    font-size: 100%;
+  }
+}
+
+tiny-gravatar[large] {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+
+  span {
+    font-size: 120%;
+  }
+}
+
+tiny-gravatar[square] {
+  border-radius: 0;
+
+  img {
+    border-radius: 0;
   }
 }
