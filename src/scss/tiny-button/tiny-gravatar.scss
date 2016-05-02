@@ -10,8 +10,11 @@ tiny-gravatar {
 
   span {
     display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 
   img {
@@ -32,7 +35,6 @@ tiny-gravatar {
 tiny-gravatar[small] {
   width: 25px;
   height: 25px;
-  line-height: 25px;
 
   span {
     font-size: 70%;
@@ -42,7 +44,6 @@ tiny-gravatar[small] {
 tiny-gravatar {
   width: 35px;
   height: 35px;
-  line-height: 35px;
 
   span {
     font-size: 100%;
@@ -52,10 +53,9 @@ tiny-gravatar {
 tiny-gravatar[large] {
   width: 50px;
   height: 50px;
-  line-height: 50px;
 
   span {
-    font-size: 120%;
+    font-size: 130%;
   }
 }
 
