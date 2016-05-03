@@ -59,10 +59,19 @@ tiny-gravatar[large] {
   }
 }
 
+tiny-gravatar[x-large] {
+  width: 80px;
+  height: 80px;
+
+  span {
+    font-size: 200%;
+  }
+}
+
 tiny-gravatar[square] {
-  border-radius: 0;
+  border-radius: 3px;
 
   img {
-    border-radius: 0;
+    border-radius: 3px;
   }
 }

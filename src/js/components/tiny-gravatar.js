@@ -26,7 +26,11 @@ function getInitialLetters(str) {
 
   var words = str.split(' ');
   if (words.length === 1) {
-    return words[0].substr(0, 2);
+    var word = words[0];
+    if (word.length > 2) {
+      return word.charAt(0).toUpperCase();
+    }
+    return word;
   }
 
   return words.map(function(word) {
