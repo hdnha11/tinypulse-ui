@@ -1,15 +1,15 @@
 ## TINYpulse front-end framework
 
-Install project
-Note: first delete `dist` folder. It should be handle by gulp tasks.
-```
-npm install
-bower install
-gulp
-```
+# Getting Started
+Install Node.js modules and run npm start:
 
-Open docs
 ```
-gulp server
+$ npm install
+$ npm start
 ```
-http://localhost:8080/docs/index.html
+Open web browser at http://localhost:8000 to start working
+# How to Deploy
+```
+$ npm run build
+```
+The distribution files will be generated in `dist` folder.
