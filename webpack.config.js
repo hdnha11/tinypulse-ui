@@ -14,6 +14,10 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var scssLoader = {
   test: /\.scss$/
 };
+var fontLoader = {
+  test: /\.woff2|eot|ttf|svg|woff?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+  loader: 'url'
+};
 
 var config = {
   entry: [
@@ -70,5 +74,6 @@ if (isDebug) {
 }
 
 config.module.loaders.push(scssLoader);
+config.module.loaders.push(fontLoader);
 
 module.exports = config;
